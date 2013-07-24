@@ -10,48 +10,47 @@
  */
 class Inchoo_Facebook_Block_Template extends Mage_Core_Block_Template
 {
-	
-	public function isSecure()
-	{
-		return Mage::app()->getStore()->isCurrentlySecure();
-	}
-	
-	public function getConnectUrl()
-	{
-		return $this->getUrl('inchoo_facebook/customer_account/connect', array('_secure'=>true));
-	}
-	
-	public function getChannelUrl()
-	{
-		return $this->getUrl('inchoo_facebook/channel', array('_secure'=>$this->isSecure(),'locale'=>$this->getLocale()));
-	}	
-	
-	public function getRequiredPermissions()
-	{
-		return json_encode('email,user_birthday');
-	}
-	
-	public function isEnabled()
-	{
-		return Mage::getSingleton('inchoo_facebook/config')->isEnabled();
-	}
-	
-	public function getApiKey()
-	{
-		return Mage::getSingleton('inchoo_facebook/config')->getApiKey();
-	}
-	
-	public function getLocale()
-	{
-		return Mage::getSingleton('inchoo_facebook/config')->getLocale();
-	}
-	
+    public function isSecure()
+    {
+        return Mage::app()->getStore()->isCurrentlySecure();
+    }
+
+    public function getConnectUrl()
+    {
+        return $this->getUrl('inchoo_facebook/customer_account/connect', array('_secure' => true));
+    }
+
+    public function getChannelUrl()
+    {
+        return $this->getUrl('inchoo_facebook/channel', array('_secure'=>$this->isSecure(),'locale'=>$this->getLocale()));
+    }   
+
+    public function getRequiredPermissions()
+    {
+        return json_encode('email,user_birthday');
+    }
+
+    public function isEnabled()
+    {
+        return Mage::getSingleton('inchoo_facebook/config')->isEnabled();
+    }
+
+    public function getApiKey()
+    {
+        return Mage::getSingleton('inchoo_facebook/config')->getApiKey();
+    }
+
+    public function getLocale()
+    {
+        return Mage::getSingleton('inchoo_facebook/config')->getLocale();
+    }
+
     protected function _toHtml()
     {
         if (!$this->isEnabled()) {
             return '';
         }
+
         return parent::_toHtml();
     }
-	
 }

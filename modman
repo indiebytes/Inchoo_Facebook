@@ -1,0 +1,5 @@
+app/etc/modules/*.xml                          app/etc/modules/
+app/code/community/Inchoo/*                    app/code/community/Inchoo/
+app/design/frontend/default/default/layout/*   app/design/frontend/default/default/layout/
+app/design/frontend/default/default/template/* app/design/frontend/default/default/template/
+app/locale/sv_SE/*.csv                         app/locale/sv_SE/

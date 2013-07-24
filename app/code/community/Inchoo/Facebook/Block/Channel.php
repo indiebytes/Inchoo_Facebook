@@ -12,6 +12,12 @@ class Inchoo_Facebook_Block_Channel extends Inchoo_Facebook_Block_Template
 {
     protected function _toHtml()
     {
-		return '<script src="'.($this->isSecure() ? 'https://' : 'http://').'connect.facebook.net/'.($this->getData('locale') ?  $this->getData('locale') : $this->getLocale()).'/all.js"></script>';
+        $src  = sprintf("%sconnect.facebook.net/%s/all.js",
+                ($this->isSecure() ? 'https://' : 'http://'),
+                ($this->getData('locale') ? $this->getData('locale') : $this->getLocale())
+            );
+        $html = sprintf('<script src="%s"></script>', $src);
+
+        return $html;
     }
 }
